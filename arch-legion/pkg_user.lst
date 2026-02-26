@@ -1,0 +1,31 @@
+# Additional packages to install alongside HyDE
+# Pass to HyDE installer: ./install.sh pkg_user.lst
+
+# Browsers
+firefox
+
+# Terminal tools
+tmux
+btop
+ripgrep
+fd
+bat
+eza
+zoxide
+fzf
+jq
+yq
+lazygit
+
+# Development
+python
+python-pip
+python-pipx
+nodejs
+npm
+go
+
+# Networking
+openssh
+wireguard-tools
+nmap

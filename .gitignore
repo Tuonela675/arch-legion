@@ -1,0 +1,11 @@
+# VM testing artifacts
+vm/
+*.iso
+*.vdi
+*.vbox
+*.vbox-prev
+*.nvram
+*.png
+
+# Broken directory name from original repo
+arch-legion/{scripts,configs,configs/
