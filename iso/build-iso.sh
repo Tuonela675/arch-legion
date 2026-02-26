@@ -37,8 +37,23 @@ fi
 # -----------------------------------------------
 echo "Populating airootfs with arch-legion scripts..."
 
-# The arch-legion project root (one level up from iso/)
+# Locate the arch-legion scripts directory
+# Supports both repo layout (repo/arch-legion/iso/) and flat VM layout (arch-legion/iso/)
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+if [[ -d "$PROJECT_ROOT/arch-legion/scripts" ]]; then
+    # Nested repo layout: repo/arch-legion/{scripts,configs,...}
+    SCRIPTS_ROOT="$PROJECT_ROOT/arch-legion"
+elif [[ -d "$PROJECT_ROOT/scripts" ]]; then
+    # Flat layout: arch-legion/{scripts,configs,iso,...}
+    SCRIPTS_ROOT="$PROJECT_ROOT"
+else
+    echo "ERROR: Cannot find arch-legion scripts directory."
+    echo "  Checked: $PROJECT_ROOT/arch-legion/scripts"
+    echo "  Checked: $PROJECT_ROOT/scripts"
+    exit 1
+fi
+echo "Scripts source: $SCRIPTS_ROOT"
+
 AIROOTFS="$PROFILE_DIR/airootfs/root/arch-legion"
 
 # Copy the full arch-legion directory (scripts, configs, pkg list, etc.)
@@ -49,10 +64,10 @@ rsync -av --delete \
     --exclude='.git/' \
     --exclude='vm/' \
     --exclude='*.iso' \
-    "$PROJECT_ROOT/arch-legion/" "$AIROOTFS/"
+    "$SCRIPTS_ROOT/" "$AIROOTFS/"
 
 # Copy archinstall config to root's home in the ISO
-cp "$PROJECT_ROOT/arch-legion/archinstall-config.json" "$PROFILE_DIR/airootfs/root/archinstall-config.json"
+cp "$SCRIPTS_ROOT/archinstall-config.json" "$PROFILE_DIR/airootfs/root/archinstall-config.json"
 
 echo "airootfs populated."
 
