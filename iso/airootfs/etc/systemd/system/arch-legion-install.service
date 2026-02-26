@@ -1,0 +1,19 @@
+[Unit]
+Description=arch-legion automated installation
+After=network-online.target
+Wants=network-online.target
+# Only run in the live ISO environment
+ConditionPathExists=/root/run-install.sh
+
+[Service]
+Type=oneshot
+ExecStart=/root/run-install.sh
+StandardOutput=journal+console
+StandardError=journal+console
+# Give install process plenty of time
+TimeoutStartSec=infinity
+# Don't restart on failure — drop to shell instead
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

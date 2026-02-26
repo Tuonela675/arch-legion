@@ -1,0 +1,10 @@
+{
+    "!users": [
+        {
+            "username": "travis",
+            "!password": "arch",
+            "sudo": true
+        }
+    ],
+    "!root-password": "arch"
+}

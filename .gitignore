@@ -7,5 +7,16 @@ vm/
 *.nvram
 *.png
 
+# ISO build artifacts (populated at build time, not tracked)
+iso/airootfs/root/arch-legion/scripts/
+iso/airootfs/root/arch-legion/configs/
+iso/airootfs/root/arch-legion/pkg_user.lst
+iso/airootfs/root/arch-legion/user_credentials.conf
+iso/airootfs/root/arch-legion/archinstall-config.json
+iso/airootfs/root/arch-legion/README.md
+iso/airootfs/root/archinstall-config.json
+iso/airootfs/etc/systemd/system/multi-user.target.wants/
+iso/airootfs/etc/systemd/system/getty@tty1.service.d/
+
 # Broken directory name from original repo
 arch-legion/{scripts,configs,configs/

@@ -1,0 +1,46 @@
+# Base system
+base
+linux
+linux-firmware
+linux-headers
+
+# Bootloader
+syslinux
+grub
+efibootmgr
+
+# Archiso requirements
+mkinitcpio
+mkinitcpio-archiso
+mkinitcpio-nfs-utils
+
+# Archinstall
+archinstall
+
+# Filesystem tools
+dosfstools
+e2fsprogs
+
+# Networking (required for archinstall + package downloads)
+networkmanager
+iwd
+dhcpcd
+openssh
+
+# Firmware
+intel-ucode
+sof-firmware
+
+# Essential tools
+git
+base-devel
+wget
+curl
+vim
+neovim
+sudo
+less
+
+# Archiso live environment
+memtest86+
+nbd
